@@ -1,5 +1,6 @@
 ## 运
-pyqt5 +python3.6(anaconda)
+pyqt5 + python3.6(anaconda) + eric6
+执行action.py即可运行(run action.py)
 
 
 | 名字  | 效果    |  消耗  |  
