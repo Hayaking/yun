@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>497</width>
-    <height>314</height>
+    <height>363</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,12 +26,12 @@
       <x>-3</x>
       <y>260</y>
       <width>320</width>
-      <height>31</height>
+      <height>81</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="pushButton">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="Bt_yun_x">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -40,8 +40,8 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_2">
+     <item row="0" column="1">
+      <widget class="QPushButton" name="Bt_bo_x">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -50,23 +50,63 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>挡</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
+     <item row="0" column="3">
+      <widget class="QPushButton" name="Bt_xxdf">
        <property name="enabled">
         <bool>false</bool>
        </property>
        <property name="text">
         <string>吸星大法</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="Bt_dang_x">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>小挡</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="Bt_yun_z">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>中运</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="Bt_bo_z">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>中波</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="Bt_dang_z">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>中挡</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="Bt_xlfd">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>小李飞刀</string>
        </property>
       </widget>
      </item>
@@ -100,7 +140,7 @@
       <x>317</x>
       <y>20</y>
       <width>181</width>
-      <height>271</height>
+      <height>321</height>
      </rect>
     </property>
    </widget>

@@ -3,17 +3,24 @@ from PyQt5.QtCore import *
 from Ui_yun import Ui_MainWindow
 import Player
 import sys
-skill = {'运':1, '小波':2, '挡':3, '吸星大法':4}
+#skill = {'运':1, '小波':2, '小挡':3, '吸星大法':4, '中运':5, '中波':6, '中档':7, '小李飞刀':8}
+skill = {'运':1, '小波':2, '小挡':3,  '中运':4, '中波':5, '中档':6,'吸星大法':7, '小李飞刀':8}
+
 class MainWindow(QMainWindow,Ui_MainWindow):
     player = Player.player()
     com = Player.computer()
     def __init__(self,parent = None):
         QMainWindow.__init__(self,parent)
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.buttonclicked)
-        self.pushButton_2.clicked.connect(self.buttonclicked)
-        self.pushButton_3.clicked.connect(self.buttonclicked)
-        self.pushButton_4.clicked.connect(self.buttonclicked)
+        self.Bt_yun_x.clicked.connect(self.buttonclicked)
+        self.Bt_bo_x.clicked.connect(self.buttonclicked)
+        self.Bt_dang_x.clicked.connect(self.buttonclicked)
+        self.Bt_yun_z.clicked.connect(self.buttonclicked)
+        self.Bt_bo_z.clicked.connect(self.buttonclicked)
+        self.Bt_dang_z.clicked.connect(self.buttonclicked)
+        self.Bt_xxdf.clicked.connect(self.buttonclicked)
+        self.Bt_xlfd.clicked.connect(self.buttonclicked)
+        
         Update_status(self)
 
 
@@ -31,15 +38,26 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 def Button_switch(self, obj):
     #按钮开关
         if (obj.Qi >= 1 ):
-            self.pushButton_2.setEnabled(True)
-            self.pushButton_3.setEnabled(True)
+            self.Bt_bo_x.setEnabled(True)
+            self.Bt_dang_x.setEnabled(True)
         else :
-            self.pushButton_2.setEnabled(False)
-            self.pushButton_3.setEnabled(False)
+            self.Bt_bo_x.setEnabled(False)
+            self.Bt_dang_x.setEnabled(False)
+        if (obj.Qi >= 2):
+            self.Bt_yun_z.setEnabled(True)
+            self.Bt_bo_z.setEnabled(True)
+            self.Bt_dang_z.setEnabled(True)
+        else:
+            self.Bt_yun_z.setEnabled(False)
+            self.Bt_bo_z.setEnabled(False)
+            self.Bt_dang_z.setEnabled(False)
+            
         if (obj.Qi >= 5 ):
-            self.pushButton_4.setEnabled(True)
+            self.Bt_xxdf.setEnabled(True)
+            self.Bt_xlfd.setEnabled(True)
         else :
-            self.pushButton_4.setEnabled(False)
+            self.Bt_xxdf.setEnabled(False)
+            self.Bt_xlfd.setEnabled(False)
 def Update_status(self):
         self.textEdit_2.setText("玩家血量:"  + str(self.player.Blood) + "\n" + "玩家的气:"+str(self.player.Qi))
         self.textEdit.setText("电脑血量:"  + str(self.com.Blood) + "\n" + "电脑的气:"+str(self.com.Qi)) 
