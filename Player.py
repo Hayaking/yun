@@ -58,8 +58,6 @@ class player():
         else:
             Opponent.Blood -= 5
             self.Qi -= 5
-
-    
         
     def run(self,opp):
         if self.cont == 1:

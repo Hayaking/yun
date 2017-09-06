@@ -1,10 +1,11 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon, QPixmap
 from Ui_yun import Ui_MainWindow
 import Player
 import sys
 #skill = {'运':1, '小波':2, '小挡':3, '吸星大法':4, '中运':5, '中波':6, '中档':7, '小李飞刀':8}
-skill = {'运':1, '小波':2, '小挡':3,  '中运':4, '中波':5, '中档':6,'吸星大法':7, '小李飞刀':8}
+skill = {'运':1, '小波':2, '小挡':3,  '中运':4, '中波':5, '中挡':6,'吸星大法':7, '小李飞刀':8}
 
 class MainWindow(QMainWindow,Ui_MainWindow):
     player = Player.player()
@@ -20,6 +21,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.Bt_dang_z.clicked.connect(self.buttonclicked)
         self.Bt_xxdf.clicked.connect(self.buttonclicked)
         self.Bt_xlfd.clicked.connect(self.buttonclicked)
+        #图片自适应label大小为真
+        self.image_u.setScaledContents(True)
+        self.image_opp.setScaledContents(True)
         
         Update_status(self)
 
@@ -32,9 +36,10 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.textEdit_3.append('玩家使用了' +  self.player.run(self.com))        
         self.textEdit_3.append('电脑使用了' + self.com.run(self.player)+'\n')
         Button_switch(self, self.player)
+        Load_image(self, self.player, self.com)
         Update_status(self)
         judge(self, self.player, self.com)
-       
+      
 def Button_switch(self, obj):
     #按钮开关
         if (obj.Qi >= 1 ):
@@ -71,7 +76,20 @@ def judge(self, obj1, obj2):
             QMessageBox.about(self,"结束","平均")
         else:
             QMessageBox.about(self,"结束","电脑胜利")
-    
+def Load_image(self, obj1, obj2):
+        if obj1.cont == 1:
+            pixmap = QPixmap('image\\yun_x_l.png')
+            self.image_u.setPixmap(pixmap) 
+        elif obj1.cont == 2:
+            pixmap = QPixmap('image\\bo_x_l.jpg')
+            self.image_u.setPixmap(pixmap) 
+        if obj2.cont == 1:
+            pixmap = QPixmap('image\\yun_x_r.png')
+            self.image_opp.setPixmap(pixmap) 
+        elif obj2.cont == 2:
+            pixmap = QPixmap('image\\bo_x_r.jpg')
+            self.image_opp.setPixmap(pixmap) 
+        
 if __name__ == "__main__":
         app = QApplication(sys.argv)
         action = MainWindow()
